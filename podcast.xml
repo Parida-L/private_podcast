@@ -9,7 +9,7 @@
       <title>Épisode 1</title>
       <description>Premier test</description>
       <pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate>
-      <enclosure url="https://drive.google.com/uc?export=download&id=02-06-2025 08.29 PM.m4a" length="174080" type="audio/mpeg"/>
+      <enclosure url="https://drive.google.com/uc?export=download&amp;id=02-06-2025 08.29 PM.m4a" length="174080" type="audio/mpeg"/>
       <guid>ep1</guid>
     </item>
   </channel>
