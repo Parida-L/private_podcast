@@ -5,12 +5,13 @@
     <link>https://drive.google.com</link>
     <description>Juste moi qui parle</description>
     <language>fr</language>
+    <atom:link href="https://parida-l.github.io/private_podcast/podcast.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom"/>
     <item>
       <title>Épisode 1</title>
       <description>Premier test</description>
       <pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate>
       <enclosure url="https://drive.google.com/uc?export=download&amp;id=1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft" length="174080" type="audio/mp4"/>
-      <guid>ep1</guid>
+      <guid isPermaLink="false">ep1</guid>
     </item>
   </channel>
 </rss>
