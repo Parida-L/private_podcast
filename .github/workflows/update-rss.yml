@@ -33,6 +33,9 @@ jobs:
     - name: ⚙️ Generate podcast.xml
       run: python scripts/generate_rss_from_sheet.py
 
+    - name: 🛠 Install xmllint
+      run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
     - name: ✅ Validate XML syntax
       run: xmllint --noout podcast.xml
 
