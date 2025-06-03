@@ -1,2 +1,50 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0"><channel><title>Mon Podcast Perso</title><link>https://drive.google.com</link><description>Podcast privé mis à jour automatiquement</description><language>fr</language><atom:link href="https://parida-l.github.io/private_podcast/podcast.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom" /><item><title>Premier EP Test</title><description>Test Audio</description><pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft" length="174080" type="audio/mpeg" /><guid isPermaLink="false">1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft</guid></item><item><title>API </title><description>Episode 1</description><pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1dFXiNUY9p-tMshw74IQzvGP6iOVpDzU5" length="5767168" type="audio/mpeg" /><guid isPermaLink="false">1dFXiNUY9p-tMshw74IQzvGP6iOVpDzU5</guid></item><item><title>Fullstack JS</title><description>Episode 2</description><pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1dUypr-9tqD5ARF5Qo4A5vawyXaGplBc0" length="10066330" type="audio/mpeg" /><guid isPermaLink="false">1dUypr-9tqD5ARF5Qo4A5vawyXaGplBc0</guid></item><item><title>SQL</title><description>Episode 3</description><pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1dYL6ST2-R5R_RgG0_jgoli-iR7PpFia4" length="5242880" type="audio/mpeg" /><guid isPermaLink="false">1dYL6ST2-R5R_RgG0_jgoli-iR7PpFia4</guid></item><item><title>HTML CSS</title><description>Episode 4</description><pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1dLe9jaMHKKbXYXGg1PORGbpK4CG4D2FQ" length="6815744" type="audio/mpeg" /><guid isPermaLink="false">1dLe9jaMHKKbXYXGg1PORGbpK4CG4D2FQ</guid></item></channel></rss>
+<rss version="2.0">
+  <channel>
+    <title>Mon Podcast Perso</title>
+    <link>https://drive.google.com</link>
+    <description>Podcast privé mis à jour automatiquement</description>
+    <language>fr</language>
+    <atom:link href="https://parida-l.github.io/private_podcast/podcast.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom" />
+
+    <item>
+      <title>Premier EP Test</title>
+      <description>Test Audio</description>
+      <pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate>
+      <enclosure url="https://drive.google.com/uc?export=download&id=1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft" length="174080" type="audio/mpeg"/>
+      <guid isPermaLink="false">1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft</guid>
+    </item>
+
+    <item>
+      <title>API</title>
+      <description>Episode 1</description>
+      <pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate>
+      <enclosure url="https://drive.google.com/uc?export=download&id=1dFXiNUY9p-tMshw74IQzvGP6iOVpDzU5" length="5767168" type="audio/mpeg"/>
+      <guid isPermaLink="false">1dFXiNUY9p-tMshw74IQzvGP6iOVpDzU5</guid>
+    </item>
+
+    <item>
+      <title>Fullstack JS</title>
+      <description>Episode 2</description>
+      <pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate>
+      <enclosure url="https://drive.google.com/uc?export=download&id=1dUypr-9tqD5ARF5Qo4A5vawyXaGplBc0" length="10066330" type="audio/mpeg"/>
+      <guid isPermaLink="false">1dUypr-9tqD5ARF5Qo4A5vawyXaGplBc0</guid>
+    </item>
+
+    <item>
+      <title>SQL</title>
+      <description>Episode 3</description>
+      <pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate>
+      <enclosure url="https://drive.google.com/uc?export=download&id=1dYL6ST2-R5R_RgG0_jgoli-iR7PpFia4" length="5242880" type="audio/mpeg"/>
+      <guid isPermaLink="false">1dYL6ST2-R5R_RgG0_jgoli-iR7PpFia4</guid>
+    </item>
+
+    <item>
+      <title>HTML CSS</title>
+      <description>Episode 4</description>
+      <pubDate>Tue, 03 Jun 2025 10:00:00 +0200</pubDate>
+      <enclosure url="https://drive.google.com/uc?export=download&id=1dLe9jaMHKKbXYXGg1PORGbpK4CG4D2FQ" length="6815744" type="audio/mpeg"/>
+      <guid isPermaLink="false">1dLe9jaMHKKbXYXGg1PORGbpK4CG4D2FQ</guid>
+    </item>
+  </channel>
+</rss>

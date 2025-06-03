@@ -1,32 +1,50 @@
-name: Update RSS Feed
+name: Generate and Validate podcast.xml
 
 on:
-  workflow_dispatch: # tu peux aussi mettre "schedule" pour automatiser
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-rss.yml"
 
 jobs:
-  build:
+  update-podcast:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
 
-      - name: Install dependencies
-        run: pip install gspread oauth2client
+    - name: 📦 Install Python dependencies
+      run: |
+        pip install gspread oauth2client requests
 
-      - name: Generate podcast.xml
-        env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-        run: python scripts/generate_rss_from_sheet.py
+    - name: 🔐 Inject service account credentials
+      run: |
+        echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > scripts/podcast-rss-apikey.json
+      env:
+        GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
 
-      - name: Commit RSS file
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add podcast.xml
-          git commit -m "📝 Update podcast RSS" || echo "Nothing to commit"
-          git push
+    - name: ⚙️ Generate podcast.xml
+      run: python scripts/generate_rss_from_sheet.py
+
+    - name: ✅ Validate XML syntax
+      run: xmllint --noout podcast.xml
+
+    - name: 🔗 Check all <enclosure> links return HTTP 200
+      run: python scripts/validate_enclosures.py
+
+    - name: 💾 Commit and push updated podcast.xml
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add podcast.xml
+        git commit -m "🔄 Auto-update podcast.xml" || echo "Nothing to commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

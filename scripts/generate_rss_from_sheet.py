@@ -1,15 +1,15 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
 from datetime import datetime
 import os
 import json
 
+# Authentification
 if os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON"):
-    # exécution dans GitHub Actions
     credentials_dict = json.loads(os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON"))
 else:
-    # exécution locale (fichier json)
     with open("scripts/podcast-rss-apikey.json") as f:
         credentials_dict = json.load(f)
 
@@ -17,12 +17,12 @@ scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
 client = gspread.authorize(creds)
 
-# Spreadsheet
+# Lecture du Google Sheet
 SPREADSHEET_ID = "1_YlcQ9tzbWNxjK_gqpyJRnB2fvlA3GlUkhj6TOWvfls"
 worksheet = client.open_by_key(SPREADSHEET_ID).sheet1
 rows = worksheet.get_all_records()
 
-# RSS generation
+# Construction du flux RSS
 rss = ET.Element("rss", version="2.0")
 channel = ET.SubElement(rss, "channel")
 ET.SubElement(channel, "title").text = "Mon Podcast Perso"
@@ -36,6 +36,7 @@ ET.SubElement(channel, "atom:link", {
     "xmlns:atom": "http://www.w3.org/2005/Atom"
 })
 
+# Ajout des épisodes
 for row in rows:
     item = ET.SubElement(channel, "item")
     ET.SubElement(item, "title").text = row["Titre"]
@@ -44,12 +45,16 @@ for row in rows:
     ET.SubElement(item, "pubDate").text = date_obj.strftime("%a, %d %b %Y 10:00:00 +0200")
     url = f"https://drive.google.com/uc?export=download&id={row['Fichier ID Google Drive']}"
     ET.SubElement(item, "enclosure", {
-        "url": url.replace("&", "&amp;"),
+        "url": url,
         "length": str(row["Taille (en octets)"]),
         "type": "audio/mpeg"
     })
     ET.SubElement(item, "guid", {"isPermaLink": "false"}).text = row["Fichier ID Google Drive"]
 
-tree = ET.ElementTree(rss)
-tree.write("podcast.xml", encoding="utf-8", xml_declaration=True)
-print("✅ Fichier podcast.xml généré.")
+# Écriture avec indentation
+rough_string = ET.tostring(rss, encoding="utf-8")
+reparsed = minidom.parseString(rough_string)
+with open("podcast.xml", "w", encoding="utf-8") as f:
+    f.write(reparsed.toprettyxml(indent="  "))
+
+print("✅ Fichier podcast.xml généré avec indentation.")
