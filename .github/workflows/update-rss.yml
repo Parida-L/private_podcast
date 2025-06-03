@@ -21,7 +21,7 @@ jobs:
       - name: Generate podcast.xml
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-        run: python generate_rss_from_sheet.py
+        run: python scripts/generate_rss_from_sheet.py
 
       - name: Commit RSS file
         run: |
