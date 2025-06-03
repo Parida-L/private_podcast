@@ -5,9 +5,13 @@ from datetime import datetime
 import os
 import json
 
-# Auth Google Sheets
-with open("scripts/podcast-rss-apikey.json") as f:
-    credentials_dict = json.load(f)
+if os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON"):
+    # exécution dans GitHub Actions
+    credentials_dict = json.loads(os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON"))
+else:
+    # exécution locale (fichier json)
+    with open("scripts/podcast-rss-apikey.json") as f:
+        credentials_dict = json.load(f)
 
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
