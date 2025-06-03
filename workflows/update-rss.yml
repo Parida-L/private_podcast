@@ -1,0 +1,32 @@
+name: Update RSS Feed
+
+on:
+  workflow_dispatch: # tu peux aussi mettre "schedule" pour automatiser
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install gspread oauth2client
+
+      - name: Generate podcast.xml
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python generate_rss_from_sheet.py
+
+      - name: Commit RSS file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add podcast.xml
+          git commit -m "📝 Update podcast RSS" || echo "Nothing to commit"
+          git push

@@ -1,17 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-  <channel>
-    <title>Mon Podcast Perso</title>
-    <link>https://drive.google.com</link>
-    <description>Juste moi qui parle</description>
-    <language>fr</language>
-    <atom:link href="https://parida-l.github.io/private_podcast/podcast.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom"/>
-    <item>
-      <title>Épisode 1</title>
-      <description>Premier test</description>
-      <pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate>
-      <enclosure url="https://drive.google.com/uc?export=download&amp;id=1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft" length="174080" type="audio/mp4"/>
-      <guid isPermaLink="false">ep1</guid>
-    </item>
-  </channel>
-</rss>
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0"><channel><title>Mon Podcast Perso</title><link>https://drive.google.com</link><description>Podcast privé mis à jour automatiquement</description><language>fr</language><atom:link href="https://parida-l.github.io/private_podcast/podcast.xml" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom" /><item><title>Premier EP Test</title><description>Test Audio</description><pubDate>Mon, 02 Jun 2025 10:00:00 +0200</pubDate><enclosure url="https://drive.google.com/uc?export=download&amp;amp;id=1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft" length="174080" type="audio/mpeg" /><guid isPermaLink="false">1bkeL5nc3rtb4FLJyhnNrhykEPC2PXlft</guid></item></channel></rss>
